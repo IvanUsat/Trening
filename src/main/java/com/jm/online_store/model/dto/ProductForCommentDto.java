@@ -2,6 +2,7 @@ package com.jm.online_store.model.dto;
 
 
 import com.jm.online_store.model.Product;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;

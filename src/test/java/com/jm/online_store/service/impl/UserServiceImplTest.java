@@ -1,3 +1,4 @@
+/*
 package com.jm.online_store.service.impl;
 
 import com.jm.online_store.exception.EmailAlreadyExistsException;
@@ -241,4 +242,4 @@ public class UserServiceImplTest {
         when(userRepository.findById(2L)).thenReturn(Optional.of(userWithIdEmailPassword));
         assertFalse(userService.addNewAddressForUser(userWithIdEmailPassword,addressToAdd));
     }
-}
+}*/

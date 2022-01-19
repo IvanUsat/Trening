@@ -4,18 +4,19 @@ spring:
       initialize-schema: always
       table-name: SPRING_SESSION
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/online_store?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=Europe/Moscow
-    username: root
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/kiril
+#    online_store?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=Europe/Moscow
+    username: postgres
     password: root
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: false
+      ddl-auto:  update
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MySQL57Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         storage_engine: innodb
         jdbc:
           timezone: UTC
@@ -34,11 +35,11 @@ spring:
     protocol: smtps
     debug: true
   server:
-    url: http://localhost:9999
+    url: http://localhost:8087/
   mvc:
     static-path-pattern: /static/**
 server:
-  port: 9999
+  port: 8087
 logging:
   file:
     name: src/main/logs/my.log

@@ -36,6 +36,7 @@ import com.jm.online_store.service.interf.TopicService;
 import com.jm.online_store.service.interf.UserService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -54,7 +55,7 @@ import java.util.Set;
 /**
  * класс первичного заполнения таблиц.
  * <p>
- * для первичного заполнения базы данных раскомментировать аннотацию
+ * для первичного заполнения базы данных раскомментировать анноBтацию
  * "@PostConstruct" и поменять значение  ключа "spring.jpa.hibernate.ddl-auto"
  * в файле "application.yml" с "update" на "create" или "create-drop".
  */
@@ -86,8 +87,11 @@ public class DataInitializer {
      * Вызов методов добавлять в этод метод.
      * Следить за последовательностью вызова.
      */
+
     //@PostConstruct
     //раскомментировать аннотацию при первом запуске проекта для создания таблиц БД, потом закомментировать
+
+
     public void initDataBaseFilling() {
         roleInit();
         newsInit();
