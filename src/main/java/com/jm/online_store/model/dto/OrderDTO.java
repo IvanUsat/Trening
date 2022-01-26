@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * модель DTO для построения заказа по ижентификатору.
+ * модель DTO для построения заказа по иdентификатору.
  */
 @Data
 @NoArgsConstructor
