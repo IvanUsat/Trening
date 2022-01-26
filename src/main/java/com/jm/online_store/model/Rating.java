@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -19,7 +20,7 @@ public class Rating {
     private Double rating;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(unique = true)
+    @JoinColumn(unique = true, nullable = false)
     private User user;
 
 

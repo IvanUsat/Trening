@@ -2,6 +2,7 @@ package com.jm.online_store.repository;
 
 import com.jm.online_store.model.Rating;
 import com.jm.online_store.model.dto.RatingDto;
+import org.hibernate.annotations.NamedNativeQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,8 +16,9 @@ import java.util.List;
 public interface RatingRepository extends JpaRepository<Rating, Long> {
 
 
-    @Query("UPDATE Rating r set r.rating =: ratingDto WHERE r.user.id = ?1")
-    Rating updateOrSave(@Param("ratingDto") RatingDto ratingDto);
+    @Modifying
+    @Query(nativeQuery = true, value = "INSERT  INTO rating as r (rating, user_id) VALUES ( ?1, ?2) ON CONFLICT (user_id) DO UPDATE SET rating = ?1")
+    void saveByUserId(Double rating, Long userId);
 
     Rating findAllByUserId(Long userid);
 }
