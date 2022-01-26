@@ -126,6 +126,9 @@ public class User implements UserDetails {
     @JsonIgnore
     private Set<Feedback> feedbacks;
 
+    @OneToOne(mappedBy = "user")
+    private Rating rating;
+
     public User() {
         registerDate = LocalDate.now();
     }
